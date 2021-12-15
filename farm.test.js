@@ -1,4 +1,12 @@
-const { getYieldForPlant, getYieldForCrop, getTotalYield } = require("./farm");
+const { 
+    getYieldForPlant, 
+    getYieldForCrop, 
+    getTotalYield,
+    getCostsForCrop,
+    getRevenueForCrop,
+    getProfitForCrop
+
+} = require("./farm");
 
 // DO NOT ADJUST THESE TESTS
 
@@ -56,3 +64,21 @@ describe("getTotalYield", () => {
 
 // TESTS WRIITEN BY ME
 
+test ("Calculate the cost for a crop", () => {
+    const cropAmount = 1;
+    const cropPrice = 5;
+    
+    expect(getCostsForCrop(cropPrice,cropAmount)).toBe(5);
+});
+
+test ("Calculate revenue for a crop without enviromental factors", () => {
+    const saleAmount = 1;
+    const salePrice = 10;
+
+    expect(getRevenueForCrop(saleAmount, salePrice)).toBe(10);
+});
+
+test("Calculate profit per crop without enviromental factors", () => { 
+    expect(getProfitForCrop(getRevenueForCrop, getCostsForCrop)).toBe(5);
+
+})
