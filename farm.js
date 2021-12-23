@@ -1,4 +1,6 @@
 
+const getYieldForPlant = (corn) => corn.yield
+
 const getCostsForCrop = (input) => input.crop.price * input.numCrops;
 
 const getRevenueForCrop = (input) => 
@@ -15,7 +17,9 @@ const getTotalProfit = ({crops}) => {
 
 
 
+
 module.exports = {
+    getYieldForPlant,
     getCostsForCrop,
     getRevenueForCrop,
     getProfitForCrop,
