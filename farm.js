@@ -1,20 +1,25 @@
+const corn = {
+    name: "corn",
+    yield: 30,
+    factor: {
+        sun: {
+        low: -50,
+        medium: 0,
+        high: 50,
+        },
+    },
+    };
 
-const getCostsForCrop = (cropPrize, cropAmount) => {
-    return cropPrize * cropAmount;
+// const environmentFactors = {
+//     sun: "low",
+//     };
+
+const getCostsForCrop = (input) => {
+    return input.price*input.numCrops;
 };
-
-const getRevenueForCrop = (salePrice, saleAmount) => {
-    return salePrice * saleAmount;
-};
-
-const getProfitForCrop = (getRevenueForCrop, getCostsForCrop) => {
-    return getRevenueForCrop() - getCostsForCrop ();
-};
-
-
 
 module.exports = {
     getCostsForCrop,
-    getRevenueForCrop,
-    getProfitForCrop
+    // getRevenueForCrop,
+    // getProfitForCrop
 }
