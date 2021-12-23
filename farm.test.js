@@ -4,7 +4,7 @@ const {
     getTotalYield,
     getCostsForCrop,
     getRevenueForCrop,
-    // getProfitForCrop
+    getProfitForCrop
 
 } = require("./farm");
 
@@ -13,13 +13,15 @@ const {
 describe ("getCostsForCrop", () => {
 
     test ("Calculate the cost for a crop", () => {
+
         const corn = {
             name: "corn",
+            price: 5
         };
+
         const input = {
             crop: corn,
-            numCrops: 10,
-            price: 5
+            numCrops: 10
         };
     
         // expected output price*numcrops => 5*10 = 50
@@ -34,8 +36,9 @@ describe("getRevenueForCrop", () => {
         const corn = {
             name: "corn",
             yield: 3,
-            salePrice: 10,
+            salePrice: 10
         };
+
         const input = {
             crop: corn,
             numCrops: 5
@@ -45,8 +48,30 @@ describe("getRevenueForCrop", () => {
         
         expect(getRevenueForCrop(input)).toBe(150);
     });
-
 });
+
+describe ("getProfitForCrop", () => {
+
+    test("Calculate the profit for a crop without enviromental factors", () => {
+
+         const corn = {
+            name: "corn",
+            price: 5,
+            yield: 3,
+            salePrice: 10
+        };
+        
+        const input = {
+            crop: corn,
+            numCrops: 10
+        };
+        
+        // expected output ((yield*salePrice)*numCrops)-(price*numCrops) => 
+        // ((3*10)*10)-(5*10) = 250
+        expect(getProfitForCrop(input)).toBe(250)
+    })
+});
+
 
 
 // DO NOT ADJUST THESE TESTS
