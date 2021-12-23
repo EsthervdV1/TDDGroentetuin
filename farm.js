@@ -1,25 +1,11 @@
-const corn = {
-    name: "corn",
-    yield: 30,
-    factor: {
-        sun: {
-        low: -50,
-        medium: 0,
-        high: 50,
-        },
-    },
-    };
 
-// const environmentFactors = {
-//     sun: "low",
-//     };
+const getCostsForCrop = (input) => input.price * input.numCrops;
 
-const getCostsForCrop = (input) => {
-    return input.price*input.numCrops;
-};
+const getRevenueForCrop = (input) => 
+    (input.crop.salePrice * input.crop.yield)*input.numCrops;
 
 module.exports = {
     getCostsForCrop,
-    // getRevenueForCrop,
-    // getProfitForCrop
+    getRevenueForCrop,
+    //getProfitForCrop
 }

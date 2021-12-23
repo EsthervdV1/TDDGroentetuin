@@ -3,7 +3,7 @@ const {
     getYieldForCrop, 
     getTotalYield,
     getCostsForCrop,
-    // getRevenueForCrop,
+    getRevenueForCrop,
     // getProfitForCrop
 
 } = require("./farm");
@@ -19,41 +19,34 @@ describe ("getCostsForCrop", () => {
         const input = {
             crop: corn,
             numCrops: 10,
-            price: 50
+            price: 5
         };
     
-        // expected output price*numcrops => 50*10 = 500
+        // expected output price*numcrops => 5*10 = 50
         
-        expect(getCostsForCrop(input)).toBe(500);
-    });
-    // Dubble check to see if it works with different parameters
-
-    test ("Calculate the cost for a crop. Dubble check", () => {
-        const potato = {
-            name: "potato",
-        };
-        const input = {
-            crop: potato,
-            numCrops: 25,
-            price: 4
-        };
-    
-        // expected output price*numcrops => 25*4 = 100
-        
-        expect(getCostsForCrop(input)).toBe(100);
-    });
-    
+        expect(getCostsForCrop(input)).toBe(50);
+    });    
 });
 
+describe("getRevenueForCrop", () => {
+    
+    test ("Calculate the revenue for a crop without enviromental factors", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+            salePrice: 10,
+        };
+        const input = {
+            crop: corn,
+            numCrops: 5
+        };
+        
+        // expected output price*yield => (3*10)*5 = 150
+        
+        expect(getRevenueForCrop(input)).toBe(150);
+    });
 
-
-// test ("Calculate revenue for a crop without enviromental factors", () => {
-//     const saleAmount = 1;
-//     const salePrice = 10;
-
-//     expect(getRevenueForCrop()).toBe(10);
-// });
-
+});
 
 
 // DO NOT ADJUST THESE TESTS
